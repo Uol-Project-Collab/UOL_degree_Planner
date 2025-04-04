@@ -27,7 +27,22 @@ router.get("/roadmap", (req,res) => {
             {"moduleCode" : "CM2035", "moduleName": "Databases, networks and the web", "credits": 15, "assessmentType": "Exam"},
             {"moduleCode" : "CM2040", "moduleName": "Professsional Practice for COmputer Scientists", "credits": 15, "assessmentType": "Exam"},
         ],
-        "level_6": []
+        "level_6": [
+            {"moduleCode" : "CM3005", "moduleName": "Data science", "credits": 15, "assessmentType": "Exam"},
+            {"moduleCode" : "CM3010", "moduleName": "Databases and advanced data techniques", "credits": 15, "assessmentType": "Exam"},
+            {"moduleCode" : "CM3015", "moduleName": "Machine learning and neural networks ", "credits": 15, "assessmentType": "Coursework Only"},
+            {"moduleCode" : "CM3020", "moduleName": "Artificial intelligence", "credits": 15, "assessmentType": "Exam"},
+            {"moduleCode" : "CM3025", "moduleName": "Virtual reality", "credits": 15, "assessmentType": "Coursework Only"},
+            {"moduleCode" : "CM3030", "moduleName": "Games development", "credits": 15, "assessmentType": "Coursework Only"},
+            {"moduleCode" : "CM3035", "moduleName": "Advanced web development", "credits": 15, "assessmentType": "Coursework Only"},
+            {"moduleCode" : "CM3040", "moduleName": "Physical computing and the internet of things", "credits": 15, "assessmentType": "Coursework Only"},
+            {"moduleCode" : "CM3045", "moduleName": "3D Graphics and animation", "credits": 15, "assessmentType": "Exam"},
+            {"moduleCode" : "CM3050", "moduleName": "Mobile Development", "credits": 15, "assessmentType": "Coursework Only"},
+            {"moduleCode" : "CM3055", "moduleName": "Interaction design", "credits": 15, "assessmentType": "Exam"},
+            {"moduleCode" : "CM3060", "moduleName": "Natural Language Processing", "credits": 15, "assessmentType": "Exam"},
+            {"moduleCode" : "CM3065", "moduleName": "Intelligent Signal Processing", "credits": 15, "assessmentType": "Coursework Only"},
+            {"moduleCode" : "CM3070", "moduleName": "Physical computing and the internet of things", "credits": 30, "assessmentType": "Exam"},
+        ]
     })
 })
 
