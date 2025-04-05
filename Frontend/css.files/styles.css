@@ -1,0 +1,13 @@
+#test1 {
+    padding: 16px;
+    margin:2%;
+    border: 2px solid black;
+    background: green;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: ease-in-out 0.5s;
+}
+
+#test1:hover{
+    background: yellow
+}
