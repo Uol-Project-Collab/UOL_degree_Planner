@@ -20,7 +20,7 @@ function myOwnTest () {
     var secondElement = document.getElementById('myOwnTest');
     var originalText = secondElement.innerHTML;
     
-    console.log('just testing pull request');
+    console.log('quick pull req test');
     
     secondElement.addEventListener('mouseenter', (event) => { /// e = event 
         event.preventDefault();
