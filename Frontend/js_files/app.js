@@ -14,3 +14,35 @@ const test1 = () => {
 
 // call the function
 test1();
+
+// start NeuralNetwork57
+function myOwnTest () {
+    var secondElement = document.getElementById('myOwnTest');
+    var originalText = secondElement.innerHTML;
+    
+    console.log('just testing pull request');
+    
+    secondElement.addEventListener('mouseenter', (event) => { /// e = event 
+        event.preventDefault();
+        secondElement.animate(
+            [
+              { opacity: 0.5 },
+              { opacity: 1 }
+            ],
+            {
+              duration: 500,
+              easing: 'ease-in',
+              fill: 'forwards'
+            }
+          );
+        secondElement.innerHTML = "GOOD LUCK FOR THIS SEMESTER";
+    });
+    secondElement.addEventListener('mouseleave', () => {
+        secondElement.innerHTML = originalText;
+    });
+    }
+    
+    myOwnTest();
+    
+    // add moduleCode, moduleName, credits, assesmentType,  assessmentWeight and blockerModule
+    // end NeuralNetwork57

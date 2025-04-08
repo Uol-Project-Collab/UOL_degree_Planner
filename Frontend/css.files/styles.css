@@ -11,3 +11,24 @@
 #test1:hover{
     background: yellow
 }
+
+/* start NeuralNetwork57 */
+#myOwnTest {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-radius: 8px;
+    border: 2px solid black;
+    font-family: monospace;
+    font-size:x-large;
+    background: rgb(255, 176, 216);
+    cursor:pointer;
+    transition: linear;
+
+}
+
+#myOwnTest:hover{
+    background: yellow
+}
+/* end NeuralNetwork57 */
