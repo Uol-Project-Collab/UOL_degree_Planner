@@ -1,7 +1,13 @@
 import { Router } from "express";
 import PDFDocument from 'pdfkit';
+import fs from 'fs';
+import { fileURLToPath } from "url";
+import { dirname, join } from 'path';
+import { emailPDF } from "../utils/helper.js";
+
 const router = Router();
 
+// Constants
 const roadmapJSON = {
     "level_4": [
         { "moduleCode": "CM1005", "moduleName": "Introduction to programming I", "credits": 15, "assessmentType": "coursework", "blockerModule": true }, //pg 17 CS regs
@@ -40,6 +46,8 @@ const roadmapJSON = {
         { "moduleCode": "CM3070", "moduleName": "Final project", "credits": 30, "assessmentType": "exam + Coursework", "blockerModule": false },
     ]
 }
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 router.get("/", (req, res) => {
     res.send("Backend up and running!");
@@ -54,12 +62,15 @@ router.get('/roadmap/pdf', (req, res) => {
         // Create an instance of PDFDocument
         const doc = new PDFDocument();
 
+        // Create a path to the roadmap pdf
+        const pathToPdf = join(__dirname, 'roadmap.pdf');
+
         // Set response headers
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', 'inline; filename="roadmap.pdf"');
 
-        // Pipe the PDF into the response
-        doc.pipe(res);
+        // Store the PDF to a file
+        doc.pipe(fs.createWriteStream(pathToPdf));
 
         // Add PDF header
         doc.font('Helvetica-Bold').fontSize(18).text("University of London", { align: 'center' });
@@ -94,9 +105,44 @@ router.get('/roadmap/pdf', (req, res) => {
 
         doc.end();
 
+        doc.on('finish', () => {
+            fs.createReadStream(pathToPdf).pipe(res);
+        });
+
     } catch (error) {
         // Print error if any
         console.log(error);
+    }
+});
+
+router.post('/roadmap/email', async (req, res) => {
+    // Get email from the user
+    const { email } = req.body;
+
+    // Throw an error if no email is provided
+    if (!email) {
+        return res.status(400).json({ success: false, message: "Please provide an email" });
+    }
+
+    const pathToPdf = join(__dirname, 'roadmap.pdf');
+
+    try {
+        // Try to send pdf to an email
+        await emailPDF(pathToPdf, email);
+
+        // Delete the pdf after sending the email for memory management
+        fs.unlink(pathToPdf, (error) => {
+            if (error) {
+                console.log("Error deleting file: ", error);
+            } else {
+                console.log("PDF deleted successfully");
+            }
+        });
+
+        res.status(200).json({ success: true, message: "Email sent successfully" });
+
+    } catch (error) {
+        res.status(500).json({ success: false, message: "Failed to send email" + error });
     }
 });
 
