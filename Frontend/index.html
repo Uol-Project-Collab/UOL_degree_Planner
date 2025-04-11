@@ -25,43 +25,79 @@
         <main>
             <!-- Putting the hero section in -->
             <figure>
-                <img>
+                <!-- Image placeholder from chatGPT -->
+                <div class="w-full h-40 bg-gray-300 rounded-md flex items-center justify-center">
+                    <span class="text-gray-600">Image Here</span>
+                </div>
                 <figcaption>
                     caption for the image
                 </figcaption>
                 <p>Description of the site here</p>
             </figure>
         
-            <div class="flex items-center p-5">
-                <!-- Image placeholder -->
+            <div class="flex items-center gap-12 p-5">
+                <!-- Image placeholder from chatGPT -->
                 <div class="w-64 h-40 bg-gray-300 rounded-md flex items-center justify-center">
                     <span class="text-gray-600">Image Here</span>
                 </div>
                 <div>
-                    <h2 class="text-2xl font-bold mb-2">Heading</h2>
-                    <p class="text-gray-700">This is some text that goes next to the image. You can describe your content here
+                    <h2 class="text-2xl font-bold">Heading</h2>
+                    <p class="text-700">This is some text that goes next to the image. You can describe your content here
                         or add more info.</p>
                 </div>
             </div>
         
             <!-- Next we want reusable cards -->
+            <div class="flex items-center gap-12 mb-5">
             <div>
-                <img>
+                <div class="w-64 h-40 bg-gray-300 rounded-md flex items-center justify-center">
+                    <span class="text-gray-600">Image Here</span>
+                </div>
                 <a>Resource link</a>
+                </div>
+                
+                <div>
+                    <div class="w-64 h-40 bg-gray-300 rounded-md flex items-center justify-center">
+                        <span class="text-gray-600">Image Here</span>
+                    </div>
+                    <a>Resource link</a>
+                </div>
+                </div>
+                
+                <div class="flex items-center gap-12">
+                    <div>
+                        <div class="w-64 h-40 bg-gray-300 rounded-md flex items-center justify-center">
+                            <span class="text-gray-600">Image Here</span>
+                        </div>
+                        <a>Resource link</a>
+                    </div>
+                
+                    <div>
+                    <div class="w-64 h-40 bg-gray-300 rounded-md flex items-center justify-center">
+                        <span class="text-gray-600">Image Here</span>
+                    </div>
+                    <a>Resource link</a>
+                    </div>
+                    </div>
+
+            <div class="flex items-center gap-12 p-5">
+                <!-- Image placeholder -->
+                <div>
+                    <h2 class="text-2xl font-bold">Heading</h2>
+                    <p class="text-700">This is some text that goes next to the image. You can describe your content here
+                        or add more info.</p>
+                </div>
+                <div class="w-64 h-40 bg-gray-300 rounded-md flex items-center justify-center">
+                    <span class="text-gray-600">Image Here</span>
+                </div>
             </div>
         
-            <div>
-                <p>
-        
-                </p>
-                <img>
-            </div>
-        
-            <form action="" method="post">
-                <label for="firstName">First name</label>
-                <input type="text" id="firstName" name="firstName">
-                <label for="lastName">Last name</label>
-                <input type="text" id="lastName" name="lastName">
+            <!-- I've used <br> here which isn't good practice -->
+            <form class="bg-gray-300 mb-5" action="" method="post">
+                <label for="firstName">First name</label> <br>
+                <input class="border-1" type="text" id="firstName" name="firstName"> <br>
+                <label for="lastName">Last name</label> <br>
+                <input class="border-1" type="text" id="lastName" name="lastName">
             </form>
         </main>
 
