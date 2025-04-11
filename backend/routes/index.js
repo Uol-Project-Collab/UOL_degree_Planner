@@ -1,9 +1,6 @@
 import { Router } from "express";
-import PDFDocument from 'pdfkit';
 import fs from 'fs';
-import { fileURLToPath } from "url";
-import { dirname, join } from 'path';
-import { emailPDF } from "../utils/helper.js";
+import { emailPDF, generatePDF } from "../utils/helper.js";
 
 const router = Router();
 
@@ -46,8 +43,6 @@ const roadmapJSON = {
         { "moduleCode": "CM3070", "moduleName": "Final project", "credits": 30, "assessmentType": "exam + Coursework", "blockerModule": false },
     ]
 }
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 router.get("/", (req, res) => {
     res.send("Backend up and running!");
@@ -57,61 +52,29 @@ router.get("/roadmap", (req, res) => {
     res.json(roadmapJSON);
 });
 
-router.get('/roadmap/pdf', (req, res) => {
+router.get('/roadmap/pdf', async (req, res) => {
     try {
-        // Create an instance of PDFDocument
-        const doc = new PDFDocument();
+        // Generate the PDF
+        const pathToPdf = await generatePDF(roadmapJSON);
 
-        // Create a path to the roadmap pdf
-        const pathToPdf = join(__dirname, 'roadmap.pdf');
-
-        // Set response headers
-        res.setHeader('Content-Type', 'application/pdf');
-        res.setHeader('Content-Disposition', 'inline; filename="roadmap.pdf"');
-
-        // Store the PDF to a file
-        doc.pipe(fs.createWriteStream(pathToPdf));
-
-        // Add PDF header
-        doc.font('Helvetica-Bold').fontSize(18).text("University of London", { align: 'center' });
-        doc.moveDown(0.7);
-
-        doc.fontSize(16).text("BSc Computer Science Degree Roadmap", { align: 'center' });
-        doc.moveDown(2);
-
-        // Traverse through the JSON Data
-        for (const [level, modules] of Object.entries(roadmapJSON)) {
-            doc.font('Helvetica').fontSize(15).fillColor('#000080').text(`Level ${level.slice(6)} Modules`);
-            doc.moveDown(1.5);
-
-            // Display each module's contents
-            for (const module of modules) {
-                doc.fontSize(13).fillColor('black').text(`${module.moduleCode}: ${module.moduleName.toUpperCase()}`);
-                doc.moveDown(1);
-
-                doc.fontSize(12).text(`Credits: ${module.credits}`);
-                doc.moveDown(1);
-
-                doc.fontSize(12).text(`Assessment Type: ${module.assessmentType[0].toUpperCase() + module.assessmentType.slice(1)}`);
-                doc.moveDown(1);
-
-                doc.fontSize(12).text(`Blocker Module: ${module.blockerModule ? "Yes" : "No"}`);
-                doc.moveDown(2.5);
-            }
-            doc.moveDown(2);
+        // Check if the PDF is generated and exists
+        if (!fs.existsSync(pathToPdf)) {
+            return res.status(404).json({ success: false, message: "PDF does not exist" });
         }
 
-        doc.moveDown(2);
-
-        doc.end();
-
-        doc.on('finish', () => {
-            fs.createReadStream(pathToPdf).pipe(res);
+        // Download the PDF and delete it from the memory after downloading successfully
+        res.download(pathToPdf, 'roadmap.PDF', (error) => {
+            if (error) {
+                console.log(error);
+                res.status(500).json({ success: false, message: "Failed to download PDF" });
+            } else {
+                fs.unlinkSync(pathToPdf);
+            }
         });
 
     } catch (error) {
-        // Print error if any
         console.log(error);
+        res.status(500).json({ success: false, message: "Error generating PDF" });
     }
 });
 
@@ -124,25 +87,29 @@ router.post('/roadmap/email', async (req, res) => {
         return res.status(400).json({ success: false, message: "Please provide an email" });
     }
 
-    const pathToPdf = join(__dirname, 'roadmap.pdf');
-
     try {
-        // Try to send pdf to an email
-        await emailPDF(pathToPdf, email);
+        // Generate the PDF 
+        const pathToPdf = await generatePDF(roadmapJSON);
 
-        // Delete the pdf after sending the email for memory management
-        fs.unlink(pathToPdf, (error) => {
-            if (error) {
-                console.log("Error deleting file: ", error);
-            } else {
-                console.log("PDF deleted successfully");
-            }
-        });
+        // Check if the PDF is generated and exists
+        if (!fs.existsSync(pathToPdf)) {
+            return res.status(404).json({ success: true, message: "PDF does not exist" });
+        }
 
-        res.status(200).json({ success: true, message: "Email sent successfully" });
+        try {
+            // Try to send pdf to an email
+            await emailPDF(pathToPdf, email);
+
+            // Delete the pdf after sending email
+            fs.unlinkSync(pathToPdf);
+
+            res.status(200).json({ success: true, message: "PDF sent to email successfully" });
+        } catch (error) {
+            res.status(500).json({ success: false, message: "Error sending email" });
+        }
 
     } catch (error) {
-        res.status(500).json({ success: false, message: "Failed to send email" + error });
+        res.status(500).json({ success: false, message: "Error generating PDF" });
     }
 });
 
