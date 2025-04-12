@@ -25,10 +25,69 @@
     background: rgb(255, 176, 216);
     cursor:pointer;
     transition: linear;
-
 }
 
-#myOwnTest:hover{
-    background: yellow
+.aboutNavbar {
+    padding: 14px;
+    background: rgb(0, 86, 210); /* RGB in Coursera blue colour */
+    border-radius: 22px;
+    display: flex;
+    cursor: pointer;
+}
+.aboutNavbar:hover{
+    color:aliceblue;
+}
+
+
+.aboutUsTitle {
+    padding-left: 44px;
+}
+
+.navItem {
+    padding-left: 22px;
+    padding-right: 22px;
+    text-decoration: none; /* to remove dots in between items */
+    font-size: x-large; 
+    cursor: pointer;
+}
+.navItem:hover{
+    color: white;
+}
+
+
+.aboutHeader {
+    padding-left: 22px;
+    padding-right: 22px;
+    text-decoration: none; /* to remove dots in between items */
+    font-size: x-large; 
+    cursor: pointer;
+    border-style:dashed;
+    background: aliceblue    
+}
+
+
+.aboutMember {
+  padding: 10px;
+  padding-block: 10px;
+  font-family: Cambria; 
+  font-size: large;
+  cursor: pointer; 
+  border-style:dashed;
+  background-color: aliceblue 
+}
+.aboutMember:hover {
+    color: rgb(0, 86, 210);
+}
+
+
+.aboutFooter {
+    font-size: small;
+    align-content:center;
+    padding-block: 50px;
+    cursor: pointer;
+    background-color: aliceblue;
+}
+.aboutFooter:hover {
+    color: rgb(0, 86, 210);
 }
 /* end NeuralNetwork57 */
