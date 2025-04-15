@@ -3,25 +3,45 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <link rel="stylesheet" href="./css.files/styles.css" />
     </head>
     <body>
-        <header>
+        <header class="flex flex-col">
             <!-- The header will most likely contain your navigation, logo, title etc.  -->
             <!-- the h tags are for titles, the number is indicating size, but use css for actual sizing, the numbers more for browser sematics -->
-            <h1 class="text-3xl font-bold text-black">Home Page</h1>
+            <h1 class="text-3xl font-bold pl-8 p-4">Level 4 Modules</h1>
             <!-- ul = unordered list -->
-            <nav class="bg-red-100 p-4">
-                <ul class="flex justify-between w-full">
+            <nav class="bg-sky-500">
+                <ul class="flex justify-evenly text-sm font-light">
                     <!-- li = list item -->
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="level4.html">level 4</a></li>
-                    <li><a href="level5.html">level 5</a></li>
-                    <li><a href="level6.html">level 6</a></li>
+                    <a href="index.html" class="p-2 w-1/4 text-center rounded-md transition-all duration-300 ease-in-out delay-100 hover:font-bold hover:bg-sky-600 border border-sky-500 hover:border-sky-800">
+                        <li id="home">
+                                Home
+                        </li>
+                    </a>
+                    <a href="level4.html" class="p-2 w-1/4 text-center rounded-md transition-all duration-300 ease-in-out delay-100 hover:font-bold hover:bg-sky-600 border border-sky-500 hover:border-sky-800">
+                        <li id="lvl4">
+                                Level 4
+                        </li>
+                    </a>
+                    <a href="level5.html" class="p-2 w-1/4 text-center rounded-md transition-all duration-300 ease-in-out delay-100 hover:font-bold hover:bg-sky-600 border border-sky-500 hover:border-sky-800">
+                        <li id="lvl5">
+                                Level 5
+                        </li>
+                    </a>
+                    <a href="level6.html" class="p-2 w-1/4 text-center rounded-md transition-all duration-300 ease-in-out delay-100 hover:font-bold hover:bg-sky-600 border border-sky-500 hover:border-sky-800">
+                        <li id="lvl6">
+                                level6
+                        </li>
+                    </a>
+                    <a href="about.html" class="p-2 w-1/4 text-center rounded-md transition-all duration-300 ease-in-out delay-100 hover:font-bold hover:bg-sky-600 border border-sky-500 hover:border-sky-800">
+                        <li id="about">
+                                About
+                        </li>
+                    </a>
                 </ul>
             </nav>
         </header>
+
         <main>
             <!-- Putting the hero section in -->
             <figure>
@@ -106,7 +126,7 @@
             <!-- this is your footer content -->
             <h3>This is your footer!</h3>
         </footer>
-
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <script src="./js_files/app.js"></script>
     </body>
 </html>
