@@ -90,3 +90,10 @@
     color: rgb(0, 86, 210);
 }
 /* end NeuralNetwork57 */
+
+#hero {
+    background-image: url("../public/Students_Outside 36.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
