@@ -2,35 +2,79 @@ let roadmapJSON = {};
 
 // Get the currently selected level
 const currentLevel = document.getElementById('level');
+
+// Table elements
 const roadmapBody = document.getElementById('roadmap-body');
 const errorMessage = document.getElementById('roadmap-error');
 
-// Fetch roadmap data from the API
-fetch('http://localhost:3000/roadmap')
-    .then(res => res.json())
-    .then(data => {
-        roadmapJSON = data;
-        localStorage.setItem("roadmap", JSON.stringify(data));
-        // Display content from the current level
-        displayTableData(currentLevel.value);
-    })
-    .catch(error => {
-        console.log("Could not fetch data", error);
-        const localData = localStorage.getItem("roadmap");
-        if (localData) {
-            roadmapJSON = JSON.parse(localData);
+// Download and email buttons
+const downloadBtn = document.getElementById('roadmap-download');
+const emailBtn = document.getElementById('roadmap-email');
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('http://localhost:3000/roadmap')
+        .then(res => res.json())
+        .then(data => {
+            roadmapJSON = data;
+            localStorage.setItem("roadmap", JSON.stringify(data));
+            // Display content from the current level
             displayTableData(currentLevel.value);
-        } else {
-            errorMessage.textContent = "Data Unavailable. Please try again later";
-            errorMessage.classList.add("block");
-            errorMessage.classList.remove("hidden");
+        })
+        .catch(error => {
+            console.log("Could not fetch data", error);
+            const localData = localStorage.getItem("roadmap");
+            if (localData) {
+                roadmapJSON = JSON.parse(localData);
+                displayTableData(currentLevel.value);
+            } else {
+                errorMessage.textContent = "Data Unavailable. Please try again later";
+                errorMessage.classList.add("block");
+                errorMessage.classList.remove("hidden");
+            }
+        });
+
+    // If the level value changes, display that level-specific data
+    currentLevel.addEventListener("change", () => {
+        displayTableData(currentLevel.value);
+    });
+
+    // Event listener for download button
+    downloadBtn.addEventListener('click', async () => {
+        try {
+            const res = await fetch('http://localhost:3000/roadmap/pdf');
+
+            if (!res.ok) {
+                throw new Error("Internal Server Error", res.status);
+            }
+
+            // Get the file
+            const file = await res.blob();
+
+            // Create a temporary URL for the file
+            const fileURL = window.URL.createObjectURL(file);
+            const fileLink = document.createElement('a');
+            fileLink.href = fileURL;
+
+            // Simulate user click to download file
+            fileLink.download = 'BScCS_UoL_roadmap.pdf';
+            fileLink.click();
+
+            // Clean-up
+            window.URL.revokeObjectURL(fileURL);
+
+        } catch (error) {
+            console.log(error);
+            alert("Something went wrong! Please try again later");
         }
     });
 
-// If the level value changes, display that level-specific data
-currentLevel.addEventListener("change", () => {
-    displayTableData(currentLevel.value);
+    // Event listener for send email button
+    emailBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        sendEmail();
+    });
 });
+
 
 // Function to diplay level-specific module data
 function displayTableData(level) {
@@ -41,7 +85,6 @@ function displayTableData(level) {
     const modules = roadmapJSON[level];
 
     // Display each module
-    console.log(modules.length)
     modules.forEach(module => {
         // Module row
         const tableRow = document.createElement("tr");
@@ -81,4 +124,41 @@ function displayTableData(level) {
 
         roadmapBody.appendChild(tableRow);
     });
+}
+
+// Function to send email
+async function sendEmail() {
+    // User email input
+    const userEmail = document.getElementById('email').value;
+
+    // Alert if no email is provided
+    if (!userEmail) {
+        alert("User Email Required");
+        return;
+    }
+
+    try {
+        alert("Sending email...");
+
+        const res = await fetch('http://localhost:3000/roadmap/email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: userEmail })
+        });
+
+        // Throw an error if failed to send email
+        if (!res.ok) {
+            throw new Error("Something went wrong");
+        }
+
+        // Success message
+        alert("Email sent successfully");
+
+        // Clean-up
+        document.getElementById('email').value = "";
+
+    } catch (error) {
+        alert("Failed to send email. Please try again later");
+        console.log(error);
+    }
 }
