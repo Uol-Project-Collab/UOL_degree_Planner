@@ -1,3 +1,7 @@
+/* start NeuralNetwork57 */
+@import "tailwindcss"; /* added to import tailwind */
+/* end NeuralNetwork57 */
+
 #test1 {
     padding: 16px;
     margin:2%;
@@ -24,12 +28,14 @@
     font-size:x-large;
     background: rgb(255, 176, 216);
     cursor:pointer;
-    transition: linear;
+    transition: linear; 
 }
+
+/* classic css removed for tailwind to work 
 
 .aboutNavbar {
     padding: 14px;
-    background: rgb(0, 86, 210); /* RGB in Coursera blue colour */
+    background: rgb(0, 86, 210); /* RGB in Coursera blue colour *
     border-radius: 22px;
     display: flex;
     cursor: pointer;
@@ -46,7 +52,7 @@
 .navItem {
     padding-left: 22px;
     padding-right: 22px;
-    text-decoration: none; /* to remove dots in between items */
+    text-decoration: none; /* to remove dots in between items *
     font-size: x-large; 
     cursor: pointer;
 }
@@ -54,11 +60,10 @@
     color: white;
 }
 
-
 .aboutHeader {
     padding-left: 22px;
     padding-right: 22px;
-    text-decoration: none; /* to remove dots in between items */
+    text-decoration: none; /* to remove dots in between items 
     font-size: x-large; 
     cursor: pointer;
     border-style:dashed;
@@ -79,7 +84,6 @@
     color: rgb(0, 86, 210);
 }
 
-
 .aboutFooter {
     font-size: small;
     align-content:center;
@@ -90,4 +94,6 @@
 .aboutFooter:hover {
     color: rgb(0, 86, 210);
 }
+*/
+
 /* end NeuralNetwork57 */
