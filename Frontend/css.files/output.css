@@ -8,10 +8,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-100: oklch(93.6% 0.032 17.717);
-<<<<<<< Updated upstream
-    --color-red-500: oklch(63.7% 0.237 25.331);
-=======
->>>>>>> Stashed changes
+
     --color-red-950: oklch(25.8% 0.092 26.042);
     --color-sky-500: oklch(68.5% 0.169 237.323);
     --color-sky-600: oklch(58.8% 0.158 241.966);
@@ -237,12 +234,7 @@
   .hidden {
     display: none;
   }
-<<<<<<< Updated upstream
-  .inline {
-    display: inline;
-  }
-=======
->>>>>>> Stashed changes
+
   .table {
     display: table;
   }
@@ -258,8 +250,7 @@
   .w-1 {
     width: calc(var(--spacing) * 1);
   }
-<<<<<<< Updated upstream
-=======
+
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
@@ -269,19 +260,18 @@
   .w-1\/4 {
     width: calc(1/4 * 100%);
   }
->>>>>>> Stashed changes
+
   .w-1\/6 {
     width: calc(1/6 * 100%);
   }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
-<<<<<<< Updated upstream
-=======
+
   .w-5\/6 {
     width: calc(5/6 * 100%);
   }
->>>>>>> Stashed changes
+
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
@@ -402,12 +392,7 @@
   .bg-red-100 {
     background-color: var(--color-red-100);
   }
-<<<<<<< Updated upstream
-  .bg-red-500 {
-    background-color: var(--color-red-500);
-  }
-=======
->>>>>>> Stashed changes
+
   .bg-red-950 {
     background-color: var(--color-red-950);
   }
@@ -567,8 +552,7 @@
   .text-shadow-lg {
     text-shadow: 0px 1px 2px var(--tw-text-shadow-color, rgb(0 0 0 / 0.1)), 0px 3px 2px var(--tw-text-shadow-color, rgb(0 0 0 / 0.1)), 0px 4px 8px var(--tw-text-shadow-color, rgb(0 0 0 / 0.1));
   }
-<<<<<<< Updated upstream
-=======
+
   .odd\:bg-white {
     &:nth-child(odd) {
       background-color: var(--color-white);
@@ -617,7 +601,7 @@
       }
     }
   }
->>>>>>> Stashed changes
+
   .hover\:bg-stone-100 {
     &:hover {
       @media (hover: hover) {
@@ -640,8 +624,7 @@
       }
     }
   }
-<<<<<<< Updated upstream
-=======
+
   .focus\:border-transparent {
     &:focus {
       border-color: transparent;
@@ -664,7 +647,6 @@
       outline-style: none;
     }
   }
->>>>>>> Stashed changes
 }
 #test1 {
   padding: 16px;
@@ -686,10 +668,6 @@
   border-radius: 8px;
   border: 2px solid black;
   font-family: monospace;
-<<<<<<< Updated upstream
-  font-size: x-large;
-=======
->>>>>>> Stashed changes
   background: rgb(255, 176, 216);
   cursor: pointer;
   transition: linear;
@@ -795,8 +773,6 @@
   inherits: false;
   initial-value: 100%;
 }
-<<<<<<< Updated upstream
-=======
 @property --tw-scale-x {
   syntax: "*";
   inherits: false;
@@ -812,7 +788,6 @@
   inherits: false;
   initial-value: 1;
 }
->>>>>>> Stashed changes
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -838,12 +813,9 @@
       --tw-ease: initial;
       --tw-text-shadow-color: initial;
       --tw-text-shadow-alpha: 100%;
-<<<<<<< Updated upstream
-=======
       --tw-scale-x: 1;
       --tw-scale-y: 1;
       --tw-scale-z: 1;
->>>>>>> Stashed changes
     }
   }
 }
