@@ -1,0 +1,103 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Degree Roadmap</title>
+</head>
+
+<body>
+    <header class="flex flex-col">
+        <!-- Navigation bar and heading -->
+        <h1 class="text-3xl font-bold p-5">BSc Computer Science Degree Roadmap</h1>
+        <nav class="bg-blue-900 text-white">
+            <ul class="flex justify-evenly">
+                <li id="home"
+                    class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                    <a href="index.html">Home</a>
+                </li>
+                <li id="about"
+                    class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                    <a href="about.html">About</a>
+                </li>
+                <li id="level4"
+                    class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                    <a href="level4.html">Level 4</a>
+                </li>
+                <li id="level5"
+                    class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                    <a href="level5.html">Level 5</a>
+                </li>
+                <li id="level6"
+                    class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                    <a href="level6.html">Level 6</a>
+                </li>
+                <li id="roadmap"
+                    class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                    <a href="roadmap.html">Roadmap</a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="flex justify-center items-center gap-4 py-4 rounded-md w-full">
+            <h2 class="text-lg font-semibold text-gray-800">Select Module Level:</h2>
+
+            <select id="level"
+                class="px-4 py-2 rounded-lg border-1 border-gray-300 focus:outline-none focus:ring focus:ring-gray-700 focus:border-transparent text-gray-800">
+                <option value="level_4">Level 4</option>
+                <option value="level_5">Level 5</option>
+                <option value="level_6">Level 6</option>
+            </select>
+        </div>
+
+        <!-- Roadmap Main Container -->
+        <div class="flex flex-col items-center py-4">
+            <div class="max-h-106 overflow-y-auto w-5/6 border-gray-200 border-2 rounded-lg shadow-lg">
+                <!-- Roadmap table -->
+                <table class="w-full">
+                    <thead class="bg-zinc-100">
+                        <tr>
+                            <th class="py-4">Module Code</th>
+                            <th class="py-4 ">Module Name</th>
+                            <th class="py-4">Credits</th>
+                            <th class="py-4 ">Coursework Type</th>
+                            <th class="py-4 ">Blocker</th>
+                        </tr>
+                    </thead>
+                    <tbody id="roadmap-body">
+                        <!-- Roadmap data rows added here dynamically -->
+                    </tbody>
+
+                </table>
+            </div>
+
+            <!--Error message to be displayed in case data could not be fetched -->
+            <p id="roadmap-error" class="text-center font-semibold text-gray-800 py-6 hidden"></p>
+
+            <!-- Roadmap buttons -->
+            <div class="w-5/6 flex justify-between m-8">
+                <button id="roadmap-download" type="button"
+                    class="bg-indigo-900 text-white border-none rounded-3xl px-4 py-2 cursor-pointer shadow-md transition-all ease-in-out duration-600 hover:scale-105">
+                    Download Roadmap
+                </button>
+
+                <div class="flex items-center gap-2">
+                    <input id="email" type="email" placeholder="Please enter your email"
+                        class="w-76 outline-none border-2 border-gray-200 rounded-2xl px-3 py-2" required />
+                    <button id="roadmap-email" type="button"
+                        class="bg-indigo-900 text-white border-none rounded-3xl px-4 py-2 cursor-pointer shadow-md transition-all ease-in-out duration-600 hover:scale-105">
+                        Email Roadmap
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="./js_files/roadmap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</body>
+
+</html>

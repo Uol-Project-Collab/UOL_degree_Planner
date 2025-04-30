@@ -5,47 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="./css.files/styles.css" />
-<header> 
-    <h1 class="aboutUsTitle">About Us</h1>
-    <nav class="aboutNavbar"> 
-        <div class="navItem">Navbar</div>
-        <div class="navItem">Item 1</div>
-        <div class="navItem">Item 2</div>
-        <div class="navItem">Item 3</div>
+        <link rel="stylesheet" href= "./css.files/output.css" /> <!-- to link html page with tailwind -->
+</head>
+<header class="flex flex-col">
+    <!-- Navigation bar and heading -->
+    <h1 class="text-slate-50 my-6 font-bold">About Us</h1> <!-- my = margin-y-axis -->
+    <nav class="bg-red-950 text-white">
+        <ul class="flex justify-center"> <!-- flex justify-center to dynamically align content-->
+            <li id="home"
+                class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                <a href="index.html">Home</a>
+            </li>
+            <li id="level4"
+                class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                <a href="level4.html">Level 4</a>
+            </li>
+            <li id="level5"
+                class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                <a href="level5.html">Level 5</a>
+            </li>
+            <li id="level6"
+                class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                <a href="level6.html">Level 6</a>
+            </li>
+            <li id="roadmap"
+                class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                <a href="roadmap.html">Roadmap</a>
+            </li>
+            <li id="about"
+                class="w-1/6 p-2 text-center transition-all duration-300 ease-in-out hover:font-bold hover:bg-stone-100 hover:text-blue-900">
+                <a href="about.html">About Us</a>
+            </li>
+        </ul>
     </nav>
 </header>
-</head>
-<body>
-    <div class="aboutHeader">Header</div>
-    
-    <div>.</div>
-    <div>.</div>
-    <div>.</div>
-    <div>Discription</div> <!-- insert UOL background image -->
-    <div>.</div>
-    <div>.</div>
-    <div>.</div>
-
-    <div class="navItem">Project Leads</div>
-    <div class="aboutMember">Team lead 1 - Cameron </div>
-     <span>image here</span> <!-- insert profile pic Cameron here -->
-     <div class="aboutMember">Team lead 2 - Hyder </div>
-     <span>image here</span> <!-- insert profile pic Hyder here -->
- 
-     <div class="aboutNavbar">Degree Planner Team</div>
-     <div class="aboutMember">Member 1</div>
-     <span>image here</span> <!-- insert profile pic member 1 here -->
+<body class="px-6 flex flex-col space-y-4 bg-slate-950"> <!-- x-axis padding-->
+    <div class="flex justify-center"> <!-- flex justify-center to dynamically align content-->
+        <!-- img has no opening closing tag as regular -->
+        <img 
+        src="./NN_images/BSc CS.png"
+        alt="BSc_CS_Image"
+        width="400px" 
+        height="200px"
+        class="rounded-xl"
+        /> 
+    </div>
+<main>
+    <main>
+>>>>>>> Stashed changes
+    <div class="mt-20 bg-red-950 text-white rounded-4xl shadow-md font-bold px-4 py-4 mx-8 flex justify-evenly" >Project Leads</div> <!-- mt = margintop-->
+      <p class="flex justify-evenly text-white my-6 ">
+        <th class="flex justify-evenly">Team lead 1 - Cameron</th>
+       <!-- insert profile pic Cameron here --> 
+        <!-- need space here -->
+     <th class="flex justify-evenly">Team lead 2 - Hyder</th>
+      <!-- need space here -->
+       <!-- insert profile pic Hyder here -->
+    </section>
+     <div class="mt-20 bg-red-950 text-white rounded-4xl shadow-md font-bold px-4 py-4 mx-8 flex justify-evenly">Degree Planner Team</div>
+      <ul class="flex justify-evenly text-white my-6">
+       <th class="aboutMember">Member 1</th> 
+     <!-- <span>image here</span>   <-- to insert profile pic member 1 here -->
      <div class="aboutMember">Member 2</div>
-     <span>image here</span> <!-- insert profile pic memebr 2 here -->
+     <!-- <span>image here</span>   <-- to insert profile pic member 2 here -->
      <div class="aboutMember">Member 3</div>
-     <span>image here</span> <!-- insert profile pic member 3 here -->
+     <!-- <span>image here</span>   <-- to insert profile pic member 3 here -->
      <div class="aboutMember">Member 4</div>
-     <span>image here</span> <!-- insert profile pim member 4 here -->
+      <!-- <span>image here</span>   <-- to insert profile pic member 4 here -->
      <div class="aboutMember">Member 5</div> 
-     <span>image here</span> <!-- insert profile pic member 5 here-->
-
-     <div class="aboutNavbar">Grades Calculator Team</div>
+     <!-- <span>image here</span>   <-- to insert profile pic member 5 here -->
+     </ul>
+     <div class="mt-20 bg-red-950 text-white rounded-4xl shadow-md font-bold px-4 py-4 mx-8 flex justify-evenly">Grades Calculator Team</div>
      <div class="aboutMember">Member A</div>
      <span>image here</span> <!-- insert profile pic member A here -->
      <div class="aboutMember">Member B</div>
@@ -56,7 +86,13 @@
      <span>image here</span> <!-- insert profile pic member D here -->
      <div class="aboutMember">Member E</div>
      <span>image here</span> <!-- insert profile pic member E here -->
+    </main>
 </body>
-<footer class="aboutFooter">? how to get involved? ! contact us ! </footer> <!-- add links & contacts here -->
+<footer>
+    <div class="text-white my-6 font-bold px-6 py-6 mx-8 flex justify-center">
+     <p1>how to get involved?</p1>
+     <p2>contact us!</p2>
+    </div>
 </html>
+
 <!-- end NeuralNetwork57 -->
