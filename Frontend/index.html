@@ -2,8 +2,14 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link href="css.files/styles.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <!-- Font Awesome 6 CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Font Awesome 6 JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js" integrity="sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="./css.files/styles.css" />
+        <title>Degree Planner</title>
     </head>
     <body>
         <header class="flex flex-col">
@@ -39,78 +45,239 @@
                                 About
                         </li>
                     </a>
-                </ul>
-            </nav>
-        </header>
 
+        <!-- the header will most likely contain your navigation, logo, title etc -->
+        <header>
+            <nav>
+              <div class="logo">
+                <img src="./NN_images/UNIVERSITY.jpg" alt="University Logo">
+              </div>
+              <!-- Desktop Menu -->
+              <ul id="desktop">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="level4.html">Level 4</a></li>
+                <li><a href="level5.html">Level 5</a></li>
+                <li><a href="level6.html">Level 6</a></li>
+              </ul>
+              <button class="about-btn">About Us</button>
+              <button class="hamburger" onclick="showMySideMenu()">
+                <i class="fa-solid fa-bars"></i>
+              </button>
+              <!-- Mobile Menu -->
+              <div class="side-menu">
+                <ul>
+                    <button onclick="hideMySideMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="level4.html">Level 4</a></li>
+                  <li><a href="level5.html">Level 5</a></li>
+                  <li><a href="level6.html">Level 6</a></li>
+                  <li><button class="about-btn">About Us</button></li>
+                </ul>
+              </div>
+            </nav>
+          </header>
+    
         <main>
-            <!-- Putting the hero section in -->
-            <figure id="hero" class="h-1/4 m-4 rounded-md border border-gray-200">
-                <h1 class="text-3xl font-bold p-4 text-white bg-gray-800/40 w-fit rounded-md">
-                    Welcome to the Student REPL
-                </h1>
-                <p class="text-lg font-bold p-4 text-white bg-gray-800/40 w-fit rounded-md">
-                    A resource hub <br> for UOL Computer Science Students
-                </p>
-            </figure>
-        
-            <div class="flex justify-evenly items-center p-5">
-                <!-- Image placeholder from chatGPT -->
-                <img src="public/girl-laptop.jpg" class="w-1/2 m-4 border border-gray-200 shadow-md">
-                <div class="w-1/2 -mt-16">
-                    <h2 class="text-2xl font-bold">How can I use the REPL?</h2>
-                    <p class="text-700">The REPL is the all in one resource hub to support your studies in Computer Science. You'll find many resources for studying, career prospect, usuful links, and also tools to enrich your experience during your University of London degree. </p>
+
+            <div class="hero-img">
+                <img src="./NN_images/smiling-graduates-hugging-outdoors.jpg" alt="">
+                <div class="hero-text">
+                    <h1>Track Your Academic Success</h1>
+                    <p class="text-700">Welcome to Degree Planner, your ultimate tool for navigating your academic journey! This app empowers students to plan and track their degree programs with ease. Explore modules, build personalized roadmaps, and stay on top of your progress toward graduation. Our goal is to simplify degree planning, helping you achieve your academic dreams confidently and efficiently.</p>
+                    <button>Get Started</button>
                 </div>
             </div>
-        
-            <!-- Next we want reusable cards -->
-            <div class="flex h-1/3 my-8">
-                <div class="w-1/2 h-full bg-[url(public/group-room.jpg)] rounded-md flex items-end mx-8 shadow-md transition ease-in-out duration-300 hover:scale-105">
-                    <p class="text-lg font-bold p-4 text-white bg-gray-800/70 w-fit rounded-md">
-                        Generic Study link
-                    </p>
-                </div>
-            
-                
-                <div class="w-1/2 h-full bg-[url(public/three-people-laptop.jpg)] rounded-md flex items-end mx-8 shadow-md transition ease-in-out duration-300 hover:scale-105">
-                    <p class="text-lg font-bold p-4 text-white bg-gray-800/70 w-fit rounded-md">
-                        Generic Study link
-                    </p>
+
+            <div class="hero-2">
+                <div class="left-section">
+                    <h1>Your Companion to Academic Excellence</h1>
+                <p>Plan with us anywhere in the world.</p>
+                <a href="#">find out more</a>
                 </div>
                 
-                
+                <div class="right-section">
+                    <div class="search-bar">
+                      <input type="text" placeholder="Search for levels">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="levels-type">
+                      <p>level 4</p>
+                      <p>level 5</p>
+                      <p>level 6</p>
+                    </div>
+                  </div>                  
+            </div>
+
+
+            <div class="Learn-more">
+                <div class="cont-1">
+                    <img src="NN_images/front-view-academic-cap-with-books-pencils_23-2148756619.jpg.avif" alt="">
+
+                    <div class="head">
+                        <h1>Take Control of Your Academic Journey
+                        </h1>
+                        <p>Plan smarter and stay ahead with our all-in-one academic tracker.</p>
+                    </div>
+                </div>
+
+                    <div class="take">
+                    
+                   <div>
+                    <img src="NN_images/photo-1543286386-713bdd548da4.jpg" alt="">
+                    <div class="overlay-text">
+                        <h2>📊 Visualize Your Progress</h2>
+                    <p>Analyze your performance across sections with interactive charts and maps.</p>
+                    </div>
+                   </div>
+
+                   <div>
+                    <img src="NN_images/pexels-photo-7285211.jpeg.webp" alt="">
+
+                    <div class="overlay-text">
+                        <h2>📚 Stay Organized</h2>
+                        <p>Easily monitor how many modules you're taking in each section.</p>
+                    </div>
+                 </div>
+
+                 <div>
+                    <img src="NN_images/pexels-photo-4560083.jpeg.webp" alt="">
+                    <div class="overlay-text">
+                        <h2>📥 Download Your Results</h2>
+                        <p>Access and download your academic results anytime, all in one place.</p>
+                 </div>
                     </div>
 
-            <div class="flex items-center gap-12 p-5">
-                <div class="">
-                    <h1 class="text-2xl font-bold">
-                        How you can improve this REPL
-                    </h1>
-                    <p>Your feedback is really valuable for us to improve the REPL and add the content that's needed by students, so feel free to let us know your thoughts using the form below. You can also support us by getting involved in maintaining this REPL or getting involved in future projcts which you can find out how 
-                    <a href="/Frontend/about.html" class="text-sky-800 text-bold text-shadow-lg">
-                        Here
-                    </a>
-                </p>
+
+                 <div>
+                        <img class="img1" src="NN_images/premium_photo-1679496825686-52b39ec68ab1.jpg" alt="">
+                        <div class="overlay-text">
+                            <h2>✅ Calculate Your GPA Instantly</h2>
+                            <p>Track your GPA for every level using our built-in calculator.</p>
+                        </div>
+                    </div>
+
                 </div>
-                <img src="public/bookbag.jpg" class="w-1/3 border border-gray-200 rounded-md shadow-md">
             </div>
         
-            <!-- I've used <br> here which isn't good practice -->
-            <form class="m-4 flex space-x-4" action="" method="post">
-                <label for="firstName" class="font-bold">First name :</label>
-                <input class="border border-gray-200 shadow-md rounded" type="text" id="firstName" name="firstName">
-                <label for="lastName" class="font-bold">Last name: </label> 
-                <input class="border border-gray-200 shadow-md rounded" type="text" id="lastName" name="lastName">
-                <button class="bg-sky-800 text-white border border-gray-300 shadow-md rounded-md p-2 px-4" action="submit">Submit</button>
-            </form>
+                    <section class="where-to">
+                        <h1>Access the App from Anywhere</h1>
+                        <p class="subtitle">No matter where you are, our app is always within reach.</p>
+                      
+                        <div class="cards-grid">
+                          <div class="card">
+                            <i class="fa-solid fa-globe"></i>
+                            <div class="card-content">
+                              <h3>Global Teaching Centers</h3>
+                              <p>Utilize the app in certified teaching centers across the world, offering stable internet and learning support.</p>
+                            </div>
+                          </div>
+                      
+                          <div class="card">
+                            <i class="fa-solid fa-laptop"></i>
+                            <div class="card-content">
+                              <h3>Online Anywhere</h3>
+                              <p>Log in anytime using your laptop or smartphone from the comfort of your home, office, or on the go.</p>
+                            </div>
+                          </div>
+                      
+                          <div class="card">
+                            <i class="fa-solid fa-school"></i>
+                            <div class="card-content">
+                              <h3>London Campus Access</h3>
+                              <p>Seamlessly connect to the app through the London campus network, available in libraries, labs, and lounges.</p>
+                            </div>
+                          </div>
+                      
+                          <div class="card">
+                            <i class="fa-solid fa-university"></i>
+                            <div class="card-content">
+                              <h3>Paris Campus Access</h3>
+                              <p>Enjoy full access at our Paris campus, whether in classrooms or common study areas.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+                      
+
+                      <div class="login-wrapper">
+                        <div class="login-info">
+                          <h1>Welcome to the Degree Planner</h1>
+                          <p>Effortlessly manage your academic journey with our smart degree planner. Track credits, optimize your path, and reach your graduation goal with confidence.</p>
+                          <ul>
+                            <li><i class="fa-solid fa-check-circle"></i> Intelligent semester planning</li>
+                            <li><i class="fa-solid fa-bullseye"></i> GPA goal tracking</li>
+                            <li><i class="fa-solid fa-bolt"></i> Instant progress insights</li>
+                          </ul>
+                        </div>
+                      
+                        <form class="login-form">
+                          <h2>Student Login</h2>
+                      
+                          <div class="input-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your student email" required>
+                          </div>
+                      
+                          <div class="input-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" placeholder="Choose a username" required>
+                          </div>
+                      
+                          <div class="input-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter your password" required>
+                          </div>
+                      
+                          <button type="submit" class="login-btn">Access Planner</button>
+                        </form>
+                      </div>
+                      
         </main>
 
-<!--highlighted part removed as suggested --> 
-        <footer class="flex justify-center p-8 bg-sky-600 text-white">
-            <!-- this is your footer content -->
-            <h3>This resource is created and maintained by students, any issues please contact the maintainers.<br>A big thank you to everyone who contributed to this project, you can find out more on our about page</h3>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <footer class="site-footer">
+            <div class="footer-container">
+              <div class="footer-about">
+                <h2>About the App</h2>
+                <p>This platform is designed to help students plan their academic journey with ease. Track credits, plan your modules, and stay on top of your degree requirements efficiently.</p>
+              </div>
+          
+              <div class="footer-links">
+                <h2>Quick Links</h2>
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">Degree Planner</a></li>
+                  <li><a href="#">Support</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
+          
+              <div class="footer-contact">
+                <h2>Contact Us</h2>
+                <p><i class="fa-solid fa-envelope"></i> support@degreeplanner.com</p>
+                <p><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fa-solid fa-location-dot"></i> 123 Academic Way, London, UK</p>
+              </div>
+          
+              <div class="footer-social">
+                <h2>Follow Us</h2>
+                <div class="social-icons">
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          
+            <div class="footer-bottom">
+              <p>&copy; 2025 Degree Planner. All rights reserved.</p>
+            </div>
+          </footer>
+          
+
         <script src="./js_files/app.js"></script>
     </body>
 </html>

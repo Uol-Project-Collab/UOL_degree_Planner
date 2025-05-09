@@ -46,3 +46,15 @@ function myOwnTest () {
     
     // add moduleCode, moduleName, credits, assesmentType,  assessmentWeight and blockerModule
     // end NeuralNetwork57
+
+    // function to display side-menu on mobile and desktop
+
+    function showMySideMenu(){
+      let sideMenu = document.querySelector('.side-menu');
+      sideMenu.classList.add("active");
+    }
+
+    function hideMySideMenu(){
+      let sideMenu = document.querySelector('.side-menu');
+      sideMenu.classList.remove("active");
+    }
